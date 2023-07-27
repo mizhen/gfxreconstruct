@@ -12322,7 +12322,7 @@ VKAPI_ATTR VkResult VKAPI_CALL GetDeferredOperationResultKHR(
 
     CustomEncoderPreCall<format::ApiCallId::ApiCall_vkGetDeferredOperationResultKHR>::Dispatch(VulkanCaptureManager::Get(), device, operation);
 
-    VkResult result = GetDeviceTable(device)->GetDeferredOperationResultKHR(device, operation);
+    VkResult result = VulkanCaptureManager::Get()->OverrideGetDeferredOperationResultKHR(device, operation);
 
     auto encoder = VulkanCaptureManager::Get()->BeginApiCallCapture(format::ApiCallId::ApiCall_vkGetDeferredOperationResultKHR);
     if (encoder)
@@ -12356,7 +12356,7 @@ VKAPI_ATTR VkResult VKAPI_CALL DeferredOperationJoinKHR(
 
     CustomEncoderPreCall<format::ApiCallId::ApiCall_vkDeferredOperationJoinKHR>::Dispatch(VulkanCaptureManager::Get(), device, operation);
 
-    VkResult result = GetDeviceTable(device)->DeferredOperationJoinKHR(device, operation);
+    VkResult result = VulkanCaptureManager::Get()->OverrideDeferredOperationJoinKHR(device, operation);
 
     auto encoder = VulkanCaptureManager::Get()->BeginApiCallCapture(format::ApiCallId::ApiCall_vkDeferredOperationJoinKHR);
     if (encoder)

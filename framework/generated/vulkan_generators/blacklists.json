@@ -16,7 +16,8 @@
     "vkLatencySleepNV",
     "vkSetLatencyMarkerNV",
     "vkGetLatencyTimingsNV",
-    "vkQueueNotifyOutOfBandNV"
+    "vkQueueNotifyOutOfBandNV",
+    "vkCreateRayTracingPipelinesKHR"
   ],
   "functions-encoder": [
     "vkCreateComputePipelines",
@@ -25,7 +26,6 @@
     "vkCreateRayTracingPipelinesKHR"
   ],
   "functions-decoder": [
-    "vkCreateRayTracingPipelinesKHR",
     "vkDeferredOperationJoinKHR"
   ],
   "structures": [
