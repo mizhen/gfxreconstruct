@@ -111,8 +111,7 @@ VKAPI_ATTR void VKAPI_CALL DestroyInstance(
         VulkanCaptureManager::Get()->EndDestroyApiCallCapture<InstanceWrapper>(instance);
     }
 
-    std::unique_lock<std::shared_mutex> exclusive_scoped_lock;
-    exclusive_scoped_lock = ScopedDestroyLock();
+    ScopedDestroyLock exclusive_scoped_lock;
     GetInstanceTable(instance)->DestroyInstance(instance, pAllocator);
 
     CustomEncoderPostCall<format::ApiCallId::ApiCall_vkDestroyInstance>::Dispatch(VulkanCaptureManager::Get(), instance, pAllocator);
@@ -446,8 +445,7 @@ VKAPI_ATTR void VKAPI_CALL DestroyDevice(
         VulkanCaptureManager::Get()->EndDestroyApiCallCapture<DeviceWrapper>(device);
     }
 
-    std::unique_lock<std::shared_mutex> exclusive_scoped_lock;
-    exclusive_scoped_lock = ScopedDestroyLock();
+    ScopedDestroyLock exclusive_scoped_lock;
     GetDeviceTable(device)->DestroyDevice(device, pAllocator);
 
     CustomEncoderPostCall<format::ApiCallId::ApiCall_vkDestroyDevice>::Dispatch(VulkanCaptureManager::Get(), device, pAllocator);
@@ -669,8 +667,7 @@ VKAPI_ATTR void VKAPI_CALL FreeMemory(
         VulkanCaptureManager::Get()->EndDestroyApiCallCapture<DeviceMemoryWrapper>(memory);
     }
 
-    std::unique_lock<std::shared_mutex> exclusive_scoped_lock;
-    exclusive_scoped_lock = ScopedDestroyLock();
+    ScopedDestroyLock exclusive_scoped_lock;
     GetDeviceTable(device)->FreeMemory(device, memory, pAllocator);
 
     CustomEncoderPostCall<format::ApiCallId::ApiCall_vkFreeMemory>::Dispatch(VulkanCaptureManager::Get(), device, memory, pAllocator);
@@ -1206,8 +1203,7 @@ VKAPI_ATTR void VKAPI_CALL DestroyFence(
         VulkanCaptureManager::Get()->EndDestroyApiCallCapture<FenceWrapper>(fence);
     }
 
-    std::unique_lock<std::shared_mutex> exclusive_scoped_lock;
-    exclusive_scoped_lock = ScopedDestroyLock();
+    ScopedDestroyLock exclusive_scoped_lock;
     GetDeviceTable(device)->DestroyFence(device, fence, pAllocator);
 
     CustomEncoderPostCall<format::ApiCallId::ApiCall_vkDestroyFence>::Dispatch(VulkanCaptureManager::Get(), device, fence, pAllocator);
@@ -1402,8 +1398,7 @@ VKAPI_ATTR void VKAPI_CALL DestroySemaphore(
         VulkanCaptureManager::Get()->EndDestroyApiCallCapture<SemaphoreWrapper>(semaphore);
     }
 
-    std::unique_lock<std::shared_mutex> exclusive_scoped_lock;
-    exclusive_scoped_lock = ScopedDestroyLock();
+    ScopedDestroyLock exclusive_scoped_lock;
     GetDeviceTable(device)->DestroySemaphore(device, semaphore, pAllocator);
 
     CustomEncoderPostCall<format::ApiCallId::ApiCall_vkDestroySemaphore>::Dispatch(VulkanCaptureManager::Get(), device, semaphore, pAllocator);
@@ -1488,8 +1483,7 @@ VKAPI_ATTR void VKAPI_CALL DestroyEvent(
         VulkanCaptureManager::Get()->EndDestroyApiCallCapture<EventWrapper>(event);
     }
 
-    std::unique_lock<std::shared_mutex> exclusive_scoped_lock;
-    exclusive_scoped_lock = ScopedDestroyLock();
+    ScopedDestroyLock exclusive_scoped_lock;
     GetDeviceTable(device)->DestroyEvent(device, event, pAllocator);
 
     CustomEncoderPostCall<format::ApiCallId::ApiCall_vkDestroyEvent>::Dispatch(VulkanCaptureManager::Get(), device, event, pAllocator);
@@ -1676,8 +1670,7 @@ VKAPI_ATTR void VKAPI_CALL DestroyQueryPool(
         VulkanCaptureManager::Get()->EndDestroyApiCallCapture<QueryPoolWrapper>(queryPool);
     }
 
-    std::unique_lock<std::shared_mutex> exclusive_scoped_lock;
-    exclusive_scoped_lock = ScopedDestroyLock();
+    ScopedDestroyLock exclusive_scoped_lock;
     GetDeviceTable(device)->DestroyQueryPool(device, queryPool, pAllocator);
 
     CustomEncoderPostCall<format::ApiCallId::ApiCall_vkDestroyQueryPool>::Dispatch(VulkanCaptureManager::Get(), device, queryPool, pAllocator);
@@ -1809,8 +1802,7 @@ VKAPI_ATTR void VKAPI_CALL DestroyBuffer(
         VulkanCaptureManager::Get()->EndDestroyApiCallCapture<BufferWrapper>(buffer);
     }
 
-    std::unique_lock<std::shared_mutex> exclusive_scoped_lock;
-    exclusive_scoped_lock = ScopedDestroyLock();
+    ScopedDestroyLock exclusive_scoped_lock;
     GetDeviceTable(device)->DestroyBuffer(device, buffer, pAllocator);
 
     CustomEncoderPostCall<format::ApiCallId::ApiCall_vkDestroyBuffer>::Dispatch(VulkanCaptureManager::Get(), device, buffer, pAllocator);
@@ -1898,8 +1890,7 @@ VKAPI_ATTR void VKAPI_CALL DestroyBufferView(
         VulkanCaptureManager::Get()->EndDestroyApiCallCapture<BufferViewWrapper>(bufferView);
     }
 
-    std::unique_lock<std::shared_mutex> exclusive_scoped_lock;
-    exclusive_scoped_lock = ScopedDestroyLock();
+    ScopedDestroyLock exclusive_scoped_lock;
     GetDeviceTable(device)->DestroyBufferView(device, bufferView, pAllocator);
 
     CustomEncoderPostCall<format::ApiCallId::ApiCall_vkDestroyBufferView>::Dispatch(VulkanCaptureManager::Get(), device, bufferView, pAllocator);
@@ -1979,8 +1970,7 @@ VKAPI_ATTR void VKAPI_CALL DestroyImage(
         VulkanCaptureManager::Get()->EndDestroyApiCallCapture<ImageWrapper>(image);
     }
 
-    std::unique_lock<std::shared_mutex> exclusive_scoped_lock;
-    exclusive_scoped_lock = ScopedDestroyLock();
+    ScopedDestroyLock exclusive_scoped_lock;
     GetDeviceTable(device)->DestroyImage(device, image, pAllocator);
 
     CustomEncoderPostCall<format::ApiCallId::ApiCall_vkDestroyImage>::Dispatch(VulkanCaptureManager::Get(), device, image, pAllocator);
@@ -2103,8 +2093,7 @@ VKAPI_ATTR void VKAPI_CALL DestroyImageView(
         VulkanCaptureManager::Get()->EndDestroyApiCallCapture<ImageViewWrapper>(imageView);
     }
 
-    std::unique_lock<std::shared_mutex> exclusive_scoped_lock;
-    exclusive_scoped_lock = ScopedDestroyLock();
+    ScopedDestroyLock exclusive_scoped_lock;
     GetDeviceTable(device)->DestroyImageView(device, imageView, pAllocator);
 
     CustomEncoderPostCall<format::ApiCallId::ApiCall_vkDestroyImageView>::Dispatch(VulkanCaptureManager::Get(), device, imageView, pAllocator);
@@ -2192,8 +2181,7 @@ VKAPI_ATTR void VKAPI_CALL DestroyShaderModule(
         VulkanCaptureManager::Get()->EndDestroyApiCallCapture<ShaderModuleWrapper>(shaderModule);
     }
 
-    std::unique_lock<std::shared_mutex> exclusive_scoped_lock;
-    exclusive_scoped_lock = ScopedDestroyLock();
+    ScopedDestroyLock exclusive_scoped_lock;
     GetDeviceTable(device)->DestroyShaderModule(device, shaderModule, pAllocator);
 
     CustomEncoderPostCall<format::ApiCallId::ApiCall_vkDestroyShaderModule>::Dispatch(VulkanCaptureManager::Get(), device, shaderModule, pAllocator);
@@ -2278,8 +2266,7 @@ VKAPI_ATTR void VKAPI_CALL DestroyPipelineCache(
         VulkanCaptureManager::Get()->EndDestroyApiCallCapture<PipelineCacheWrapper>(pipelineCache);
     }
 
-    std::unique_lock<std::shared_mutex> exclusive_scoped_lock;
-    exclusive_scoped_lock = ScopedDestroyLock();
+    ScopedDestroyLock exclusive_scoped_lock;
     GetDeviceTable(device)->DestroyPipelineCache(device, pipelineCache, pAllocator);
 
     CustomEncoderPostCall<format::ApiCallId::ApiCall_vkDestroyPipelineCache>::Dispatch(VulkanCaptureManager::Get(), device, pipelineCache, pAllocator);
@@ -2397,8 +2384,7 @@ VKAPI_ATTR void VKAPI_CALL DestroyPipeline(
         VulkanCaptureManager::Get()->EndDestroyApiCallCapture<PipelineWrapper>(pipeline);
     }
 
-    std::unique_lock<std::shared_mutex> exclusive_scoped_lock;
-    exclusive_scoped_lock = ScopedDestroyLock();
+    ScopedDestroyLock exclusive_scoped_lock;
     GetDeviceTable(device)->DestroyPipeline(device, pipeline, pAllocator);
 
     CustomEncoderPostCall<format::ApiCallId::ApiCall_vkDestroyPipeline>::Dispatch(VulkanCaptureManager::Get(), device, pipeline, pAllocator);
@@ -2486,8 +2472,7 @@ VKAPI_ATTR void VKAPI_CALL DestroyPipelineLayout(
         VulkanCaptureManager::Get()->EndDestroyApiCallCapture<PipelineLayoutWrapper>(pipelineLayout);
     }
 
-    std::unique_lock<std::shared_mutex> exclusive_scoped_lock;
-    exclusive_scoped_lock = ScopedDestroyLock();
+    ScopedDestroyLock exclusive_scoped_lock;
     GetDeviceTable(device)->DestroyPipelineLayout(device, pipelineLayout, pAllocator);
 
     CustomEncoderPostCall<format::ApiCallId::ApiCall_vkDestroyPipelineLayout>::Dispatch(VulkanCaptureManager::Get(), device, pipelineLayout, pAllocator);
@@ -2575,8 +2560,7 @@ VKAPI_ATTR void VKAPI_CALL DestroySampler(
         VulkanCaptureManager::Get()->EndDestroyApiCallCapture<SamplerWrapper>(sampler);
     }
 
-    std::unique_lock<std::shared_mutex> exclusive_scoped_lock;
-    exclusive_scoped_lock = ScopedDestroyLock();
+    ScopedDestroyLock exclusive_scoped_lock;
     GetDeviceTable(device)->DestroySampler(device, sampler, pAllocator);
 
     CustomEncoderPostCall<format::ApiCallId::ApiCall_vkDestroySampler>::Dispatch(VulkanCaptureManager::Get(), device, sampler, pAllocator);
@@ -2664,8 +2648,7 @@ VKAPI_ATTR void VKAPI_CALL DestroyDescriptorSetLayout(
         VulkanCaptureManager::Get()->EndDestroyApiCallCapture<DescriptorSetLayoutWrapper>(descriptorSetLayout);
     }
 
-    std::unique_lock<std::shared_mutex> exclusive_scoped_lock;
-    exclusive_scoped_lock = ScopedDestroyLock();
+    ScopedDestroyLock exclusive_scoped_lock;
     GetDeviceTable(device)->DestroyDescriptorSetLayout(device, descriptorSetLayout, pAllocator);
 
     CustomEncoderPostCall<format::ApiCallId::ApiCall_vkDestroyDescriptorSetLayout>::Dispatch(VulkanCaptureManager::Get(), device, descriptorSetLayout, pAllocator);
@@ -2750,8 +2733,7 @@ VKAPI_ATTR void VKAPI_CALL DestroyDescriptorPool(
         VulkanCaptureManager::Get()->EndDestroyApiCallCapture<DescriptorPoolWrapper>(descriptorPool);
     }
 
-    std::unique_lock<std::shared_mutex> exclusive_scoped_lock;
-    exclusive_scoped_lock = ScopedDestroyLock();
+    ScopedDestroyLock exclusive_scoped_lock;
     GetDeviceTable(device)->DestroyDescriptorPool(device, descriptorPool, pAllocator);
 
     CustomEncoderPostCall<format::ApiCallId::ApiCall_vkDestroyDescriptorPool>::Dispatch(VulkanCaptureManager::Get(), device, descriptorPool, pAllocator);
@@ -2778,8 +2760,7 @@ VKAPI_ATTR VkResult VKAPI_CALL ResetDescriptorPool(
 
     CustomEncoderPreCall<format::ApiCallId::ApiCall_vkResetDescriptorPool>::Dispatch(VulkanCaptureManager::Get(), device, descriptorPool, flags);
 
-    std::unique_lock<std::shared_mutex> exclusive_scoped_lock;
-    exclusive_scoped_lock = ScopedDestroyLock();
+    ScopedDestroyLock exclusive_scoped_lock;
     VkResult result = GetDeviceTable(device)->ResetDescriptorPool(device, descriptorPool, flags);
 
     auto encoder = VulkanCaptureManager::Get()->BeginApiCallCapture(format::ApiCallId::ApiCall_vkResetDescriptorPool);
@@ -2867,8 +2848,7 @@ VKAPI_ATTR VkResult VKAPI_CALL FreeDescriptorSets(
 
     CustomEncoderPreCall<format::ApiCallId::ApiCall_vkFreeDescriptorSets>::Dispatch(VulkanCaptureManager::Get(), device, descriptorPool, descriptorSetCount, pDescriptorSets);
 
-    std::unique_lock<std::shared_mutex> exclusive_scoped_lock;
-    exclusive_scoped_lock = ScopedDestroyLock();
+    ScopedDestroyLock exclusive_scoped_lock;
     VkResult result = GetDeviceTable(device)->FreeDescriptorSets(device, descriptorPool, descriptorSetCount, pDescriptorSets);
 
     auto encoder = VulkanCaptureManager::Get()->BeginTrackedApiCallCapture(format::ApiCallId::ApiCall_vkFreeDescriptorSets);
@@ -3010,8 +2990,7 @@ VKAPI_ATTR void VKAPI_CALL DestroyFramebuffer(
         VulkanCaptureManager::Get()->EndDestroyApiCallCapture<FramebufferWrapper>(framebuffer);
     }
 
-    std::unique_lock<std::shared_mutex> exclusive_scoped_lock;
-    exclusive_scoped_lock = ScopedDestroyLock();
+    ScopedDestroyLock exclusive_scoped_lock;
     GetDeviceTable(device)->DestroyFramebuffer(device, framebuffer, pAllocator);
 
     CustomEncoderPostCall<format::ApiCallId::ApiCall_vkDestroyFramebuffer>::Dispatch(VulkanCaptureManager::Get(), device, framebuffer, pAllocator);
@@ -3096,8 +3075,7 @@ VKAPI_ATTR void VKAPI_CALL DestroyRenderPass(
         VulkanCaptureManager::Get()->EndDestroyApiCallCapture<RenderPassWrapper>(renderPass);
     }
 
-    std::unique_lock<std::shared_mutex> exclusive_scoped_lock;
-    exclusive_scoped_lock = ScopedDestroyLock();
+    ScopedDestroyLock exclusive_scoped_lock;
     GetDeviceTable(device)->DestroyRenderPass(device, renderPass, pAllocator);
 
     CustomEncoderPostCall<format::ApiCallId::ApiCall_vkDestroyRenderPass>::Dispatch(VulkanCaptureManager::Get(), device, renderPass, pAllocator);
@@ -3215,8 +3193,7 @@ VKAPI_ATTR void VKAPI_CALL DestroyCommandPool(
         VulkanCaptureManager::Get()->EndDestroyApiCallCapture<CommandPoolWrapper>(commandPool);
     }
 
-    std::unique_lock<std::shared_mutex> exclusive_scoped_lock;
-    exclusive_scoped_lock = ScopedDestroyLock();
+    ScopedDestroyLock exclusive_scoped_lock;
     GetDeviceTable(device)->DestroyCommandPool(device, commandPool, pAllocator);
 
     CustomEncoderPostCall<format::ApiCallId::ApiCall_vkDestroyCommandPool>::Dispatch(VulkanCaptureManager::Get(), device, commandPool, pAllocator);
@@ -3340,8 +3317,7 @@ VKAPI_ATTR void VKAPI_CALL FreeCommandBuffers(
         VulkanCaptureManager::Get()->EndDestroyApiCallCapture<CommandBufferWrapper>(commandBufferCount, pCommandBuffers);
     }
 
-    std::unique_lock<std::shared_mutex> exclusive_scoped_lock;
-    exclusive_scoped_lock = ScopedDestroyLock();
+    ScopedDestroyLock exclusive_scoped_lock;
     GetDeviceTable(device)->FreeCommandBuffers(device, commandPool, commandBufferCount, pCommandBuffers);
 
     CustomEncoderPostCall<format::ApiCallId::ApiCall_vkFreeCommandBuffers>::Dispatch(VulkanCaptureManager::Get(), device, commandPool, commandBufferCount, pCommandBuffers);
@@ -5790,8 +5766,7 @@ VKAPI_ATTR void VKAPI_CALL DestroySamplerYcbcrConversion(
         VulkanCaptureManager::Get()->EndDestroyApiCallCapture<SamplerYcbcrConversionWrapper>(ycbcrConversion);
     }
 
-    std::unique_lock<std::shared_mutex> exclusive_scoped_lock;
-    exclusive_scoped_lock = ScopedDestroyLock();
+    ScopedDestroyLock exclusive_scoped_lock;
     GetDeviceTable(device)->DestroySamplerYcbcrConversion(device, ycbcrConversion, pAllocator);
 
     CustomEncoderPostCall<format::ApiCallId::ApiCall_vkDestroySamplerYcbcrConversion>::Dispatch(VulkanCaptureManager::Get(), device, ycbcrConversion, pAllocator);
@@ -5879,8 +5854,7 @@ VKAPI_ATTR void VKAPI_CALL DestroyDescriptorUpdateTemplate(
         VulkanCaptureManager::Get()->EndDestroyApiCallCapture<DescriptorUpdateTemplateWrapper>(descriptorUpdateTemplate);
     }
 
-    std::unique_lock<std::shared_mutex> exclusive_scoped_lock;
-    exclusive_scoped_lock = ScopedDestroyLock();
+    ScopedDestroyLock exclusive_scoped_lock;
     GetDeviceTable(device)->DestroyDescriptorUpdateTemplate(device, descriptorUpdateTemplate, pAllocator);
 
     CustomEncoderPostCall<format::ApiCallId::ApiCall_vkDestroyDescriptorUpdateTemplate>::Dispatch(VulkanCaptureManager::Get(), device, descriptorUpdateTemplate, pAllocator);
@@ -6637,8 +6611,7 @@ VKAPI_ATTR void VKAPI_CALL DestroyPrivateDataSlot(
         VulkanCaptureManager::Get()->EndDestroyApiCallCapture<PrivateDataSlotWrapper>(privateDataSlot);
     }
 
-    std::unique_lock<std::shared_mutex> exclusive_scoped_lock;
-    exclusive_scoped_lock = ScopedDestroyLock();
+    ScopedDestroyLock exclusive_scoped_lock;
     GetDeviceTable(device)->DestroyPrivateDataSlot(device, privateDataSlot, pAllocator);
 
     CustomEncoderPostCall<format::ApiCallId::ApiCall_vkDestroyPrivateDataSlot>::Dispatch(VulkanCaptureManager::Get(), device, privateDataSlot, pAllocator);
@@ -7829,8 +7802,7 @@ VKAPI_ATTR void VKAPI_CALL DestroySurfaceKHR(
         VulkanCaptureManager::Get()->EndDestroyApiCallCapture<SurfaceKHRWrapper>(surface);
     }
 
-    std::unique_lock<std::shared_mutex> exclusive_scoped_lock;
-    exclusive_scoped_lock = ScopedDestroyLock();
+    ScopedDestroyLock exclusive_scoped_lock;
     GetInstanceTable(instance)->DestroySurfaceKHR(instance, surface, pAllocator);
 
     CustomEncoderPostCall<format::ApiCallId::ApiCall_vkDestroySurfaceKHR>::Dispatch(VulkanCaptureManager::Get(), instance, surface, pAllocator);
@@ -8092,8 +8064,7 @@ VKAPI_ATTR void VKAPI_CALL DestroySwapchainKHR(
         VulkanCaptureManager::Get()->EndDestroyApiCallCapture<SwapchainKHRWrapper>(swapchain);
     }
 
-    std::unique_lock<std::shared_mutex> exclusive_scoped_lock;
-    exclusive_scoped_lock = ScopedDestroyLock();
+    ScopedDestroyLock exclusive_scoped_lock;
     GetDeviceTable(device)->DestroySwapchainKHR(device, swapchain, pAllocator);
 
     CustomEncoderPostCall<format::ApiCallId::ApiCall_vkDestroySwapchainKHR>::Dispatch(VulkanCaptureManager::Get(), device, swapchain, pAllocator);
@@ -9343,8 +9314,7 @@ VKAPI_ATTR void VKAPI_CALL DestroyVideoSessionKHR(
         VulkanCaptureManager::Get()->EndDestroyApiCallCapture<VideoSessionKHRWrapper>(videoSession);
     }
 
-    std::unique_lock<std::shared_mutex> exclusive_scoped_lock;
-    exclusive_scoped_lock = ScopedDestroyLock();
+    ScopedDestroyLock exclusive_scoped_lock;
     GetDeviceTable(device)->DestroyVideoSessionKHR(device, videoSession, pAllocator);
 
     CustomEncoderPostCall<format::ApiCallId::ApiCall_vkDestroyVideoSessionKHR>::Dispatch(VulkanCaptureManager::Get(), device, videoSession, pAllocator);
@@ -9553,8 +9523,7 @@ VKAPI_ATTR void VKAPI_CALL DestroyVideoSessionParametersKHR(
         VulkanCaptureManager::Get()->EndDestroyApiCallCapture<VideoSessionParametersKHRWrapper>(videoSessionParameters);
     }
 
-    std::unique_lock<std::shared_mutex> exclusive_scoped_lock;
-    exclusive_scoped_lock = ScopedDestroyLock();
+    ScopedDestroyLock exclusive_scoped_lock;
     GetDeviceTable(device)->DestroyVideoSessionParametersKHR(device, videoSessionParameters, pAllocator);
 
     CustomEncoderPostCall<format::ApiCallId::ApiCall_vkDestroyVideoSessionParametersKHR>::Dispatch(VulkanCaptureManager::Get(), device, videoSessionParameters, pAllocator);
@@ -10710,8 +10679,7 @@ VKAPI_ATTR void VKAPI_CALL DestroyDescriptorUpdateTemplateKHR(
         VulkanCaptureManager::Get()->EndDestroyApiCallCapture<DescriptorUpdateTemplateWrapper>(descriptorUpdateTemplate);
     }
 
-    std::unique_lock<std::shared_mutex> exclusive_scoped_lock;
-    exclusive_scoped_lock = ScopedDestroyLock();
+    ScopedDestroyLock exclusive_scoped_lock;
     GetDeviceTable(device)->DestroyDescriptorUpdateTemplateKHR(device, descriptorUpdateTemplate, pAllocator);
 
     CustomEncoderPostCall<format::ApiCallId::ApiCall_vkDestroyDescriptorUpdateTemplateKHR>::Dispatch(VulkanCaptureManager::Get(), device, descriptorUpdateTemplate, pAllocator);
@@ -11708,8 +11676,7 @@ VKAPI_ATTR void VKAPI_CALL DestroySamplerYcbcrConversionKHR(
         VulkanCaptureManager::Get()->EndDestroyApiCallCapture<SamplerYcbcrConversionWrapper>(ycbcrConversion);
     }
 
-    std::unique_lock<std::shared_mutex> exclusive_scoped_lock;
-    exclusive_scoped_lock = ScopedDestroyLock();
+    ScopedDestroyLock exclusive_scoped_lock;
     GetDeviceTable(device)->DestroySamplerYcbcrConversionKHR(device, ycbcrConversion, pAllocator);
 
     CustomEncoderPostCall<format::ApiCallId::ApiCall_vkDestroySamplerYcbcrConversionKHR>::Dispatch(VulkanCaptureManager::Get(), device, ycbcrConversion, pAllocator);
@@ -12330,8 +12297,7 @@ VKAPI_ATTR void VKAPI_CALL DestroyDeferredOperationKHR(
         VulkanCaptureManager::Get()->EndDestroyApiCallCapture<DeferredOperationKHRWrapper>(operation);
     }
 
-    std::unique_lock<std::shared_mutex> exclusive_scoped_lock;
-    exclusive_scoped_lock = ScopedDestroyLock();
+    ScopedDestroyLock exclusive_scoped_lock;
     GetDeviceTable(device)->DestroyDeferredOperationKHR(device, operation, pAllocator);
 
     CustomEncoderPostCall<format::ApiCallId::ApiCall_vkDestroyDeferredOperationKHR>::Dispatch(VulkanCaptureManager::Get(), device, operation, pAllocator);
@@ -13678,8 +13644,7 @@ VKAPI_ATTR void VKAPI_CALL DestroyDebugReportCallbackEXT(
         VulkanCaptureManager::Get()->EndDestroyApiCallCapture<DebugReportCallbackEXTWrapper>(callback);
     }
 
-    std::unique_lock<std::shared_mutex> exclusive_scoped_lock;
-    exclusive_scoped_lock = ScopedDestroyLock();
+    ScopedDestroyLock exclusive_scoped_lock;
     GetInstanceTable(instance)->DestroyDebugReportCallbackEXT(instance, callback, pAllocator);
 
     CustomEncoderPostCall<format::ApiCallId::ApiCall_vkDestroyDebugReportCallbackEXT>::Dispatch(VulkanCaptureManager::Get(), instance, callback, pAllocator);
@@ -15616,8 +15581,7 @@ VKAPI_ATTR void VKAPI_CALL DestroyDebugUtilsMessengerEXT(
         VulkanCaptureManager::Get()->EndDestroyApiCallCapture<DebugUtilsMessengerEXTWrapper>(messenger);
     }
 
-    std::unique_lock<std::shared_mutex> exclusive_scoped_lock;
-    exclusive_scoped_lock = ScopedDestroyLock();
+    ScopedDestroyLock exclusive_scoped_lock;
     GetInstanceTable(instance)->DestroyDebugUtilsMessengerEXT(instance, messenger, pAllocator);
 
     CustomEncoderPostCall<format::ApiCallId::ApiCall_vkDestroyDebugUtilsMessengerEXT>::Dispatch(VulkanCaptureManager::Get(), instance, messenger, pAllocator);
@@ -15930,8 +15894,7 @@ VKAPI_ATTR void VKAPI_CALL DestroyValidationCacheEXT(
         VulkanCaptureManager::Get()->EndDestroyApiCallCapture<ValidationCacheEXTWrapper>(validationCache);
     }
 
-    std::unique_lock<std::shared_mutex> exclusive_scoped_lock;
-    exclusive_scoped_lock = ScopedDestroyLock();
+    ScopedDestroyLock exclusive_scoped_lock;
     GetDeviceTable(device)->DestroyValidationCacheEXT(device, validationCache, pAllocator);
 
     CustomEncoderPostCall<format::ApiCallId::ApiCall_vkDestroyValidationCacheEXT>::Dispatch(VulkanCaptureManager::Get(), device, validationCache, pAllocator);
@@ -16204,8 +16167,7 @@ VKAPI_ATTR void VKAPI_CALL DestroyAccelerationStructureNV(
         VulkanCaptureManager::Get()->EndDestroyApiCallCapture<AccelerationStructureNVWrapper>(accelerationStructure);
     }
 
-    std::unique_lock<std::shared_mutex> exclusive_scoped_lock;
-    exclusive_scoped_lock = ScopedDestroyLock();
+    ScopedDestroyLock exclusive_scoped_lock;
     GetDeviceTable(device)->DestroyAccelerationStructureNV(device, accelerationStructure, pAllocator);
 
     CustomEncoderPostCall<format::ApiCallId::ApiCall_vkDestroyAccelerationStructureNV>::Dispatch(VulkanCaptureManager::Get(), device, accelerationStructure, pAllocator);
@@ -17287,8 +17249,7 @@ VKAPI_ATTR VkResult VKAPI_CALL ReleasePerformanceConfigurationINTEL(
 
     CustomEncoderPreCall<format::ApiCallId::ApiCall_vkReleasePerformanceConfigurationINTEL>::Dispatch(VulkanCaptureManager::Get(), device, configuration);
 
-    std::unique_lock<std::shared_mutex> exclusive_scoped_lock;
-    exclusive_scoped_lock = ScopedDestroyLock();
+    ScopedDestroyLock exclusive_scoped_lock;
     VkResult result = GetDeviceTable(device)->ReleasePerformanceConfigurationINTEL(device, configuration);
 
     auto encoder = VulkanCaptureManager::Get()->BeginTrackedApiCallCapture(format::ApiCallId::ApiCall_vkReleasePerformanceConfigurationINTEL);
@@ -18791,8 +18752,7 @@ VKAPI_ATTR void VKAPI_CALL DestroyIndirectCommandsLayoutNV(
         VulkanCaptureManager::Get()->EndDestroyApiCallCapture<IndirectCommandsLayoutNVWrapper>(indirectCommandsLayout);
     }
 
-    std::unique_lock<std::shared_mutex> exclusive_scoped_lock;
-    exclusive_scoped_lock = ScopedDestroyLock();
+    ScopedDestroyLock exclusive_scoped_lock;
     GetDeviceTable(device)->DestroyIndirectCommandsLayoutNV(device, indirectCommandsLayout, pAllocator);
 
     CustomEncoderPostCall<format::ApiCallId::ApiCall_vkDestroyIndirectCommandsLayoutNV>::Dispatch(VulkanCaptureManager::Get(), device, indirectCommandsLayout, pAllocator);
@@ -18993,8 +18953,7 @@ VKAPI_ATTR void VKAPI_CALL DestroyPrivateDataSlotEXT(
         VulkanCaptureManager::Get()->EndDestroyApiCallCapture<PrivateDataSlotWrapper>(privateDataSlot);
     }
 
-    std::unique_lock<std::shared_mutex> exclusive_scoped_lock;
-    exclusive_scoped_lock = ScopedDestroyLock();
+    ScopedDestroyLock exclusive_scoped_lock;
     GetDeviceTable(device)->DestroyPrivateDataSlotEXT(device, privateDataSlot, pAllocator);
 
     CustomEncoderPostCall<format::ApiCallId::ApiCall_vkDestroyPrivateDataSlotEXT>::Dispatch(VulkanCaptureManager::Get(), device, privateDataSlot, pAllocator);
@@ -20039,8 +19998,7 @@ VKAPI_ATTR void VKAPI_CALL DestroyMicromapEXT(
         VulkanCaptureManager::Get()->EndDestroyApiCallCapture<MicromapEXTWrapper>(micromap);
     }
 
-    std::unique_lock<std::shared_mutex> exclusive_scoped_lock;
-    exclusive_scoped_lock = ScopedDestroyLock();
+    ScopedDestroyLock exclusive_scoped_lock;
     GetDeviceTable(device)->DestroyMicromapEXT(device, micromap, pAllocator);
 
     CustomEncoderPostCall<format::ApiCallId::ApiCall_vkDestroyMicromapEXT>::Dispatch(VulkanCaptureManager::Get(), device, micromap, pAllocator);
@@ -21955,8 +21913,7 @@ VKAPI_ATTR void VKAPI_CALL DestroyOpticalFlowSessionNV(
         VulkanCaptureManager::Get()->EndDestroyApiCallCapture<OpticalFlowSessionNVWrapper>(session);
     }
 
-    std::unique_lock<std::shared_mutex> exclusive_scoped_lock;
-    exclusive_scoped_lock = ScopedDestroyLock();
+    ScopedDestroyLock exclusive_scoped_lock;
     GetDeviceTable(device)->DestroyOpticalFlowSessionNV(device, session, pAllocator);
 
     CustomEncoderPostCall<format::ApiCallId::ApiCall_vkDestroyOpticalFlowSessionNV>::Dispatch(VulkanCaptureManager::Get(), device, session, pAllocator);
@@ -22119,8 +22076,7 @@ VKAPI_ATTR void VKAPI_CALL DestroyShaderEXT(
         VulkanCaptureManager::Get()->EndDestroyApiCallCapture<ShaderEXTWrapper>(shader);
     }
 
-    std::unique_lock<std::shared_mutex> exclusive_scoped_lock;
-    exclusive_scoped_lock = ScopedDestroyLock();
+    ScopedDestroyLock exclusive_scoped_lock;
     GetDeviceTable(device)->DestroyShaderEXT(device, shader, pAllocator);
 
     CustomEncoderPostCall<format::ApiCallId::ApiCall_vkDestroyShaderEXT>::Dispatch(VulkanCaptureManager::Get(), device, shader, pAllocator);
@@ -22399,8 +22355,7 @@ VKAPI_ATTR void VKAPI_CALL DestroyAccelerationStructureKHR(
         VulkanCaptureManager::Get()->EndDestroyApiCallCapture<AccelerationStructureKHRWrapper>(accelerationStructure);
     }
 
-    std::unique_lock<std::shared_mutex> exclusive_scoped_lock;
-    exclusive_scoped_lock = ScopedDestroyLock();
+    ScopedDestroyLock exclusive_scoped_lock;
     GetDeviceTable(device)->DestroyAccelerationStructureKHR(device, accelerationStructure, pAllocator);
 
     CustomEncoderPostCall<format::ApiCallId::ApiCall_vkDestroyAccelerationStructureKHR>::Dispatch(VulkanCaptureManager::Get(), device, accelerationStructure, pAllocator);
