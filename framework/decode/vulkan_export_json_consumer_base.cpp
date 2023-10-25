@@ -1,6 +1,5 @@
 /*
 ** Copyright (c) 2022-2023 LunarG, Inc.
-** Copyright (c) 2023 Advanced Micro Devices, Inc. All rights reserved.
 **
 ** Permission is hereby granted, free of charge, to any person obtaining a
 ** copy of this software and associated documentation files (the "Software"),
@@ -618,30 +617,6 @@ void VulkanExportJsonConsumerBase::Process_vkUpdateDescriptorSetWithTemplateKHR(
     HandleToJson(args["descriptorUpdateTemplate"], descriptorUpdateTemplate, json_options_);
     FieldToJson(args["pData"], pData, json_options_);
 
-    WriteBlockEnd();
-}
-
-void VulkanExportJsonConsumerBase::Process_vkCreateRayTracingPipelinesKHR(
-    const ApiCallInfo&                                               call_info,
-    VkResult                                                         returnValue,
-    format::HandleId                                                 device,
-    format::HandleId                                                 deferredOperation,
-    format::HandleId                                                 pipelineCache,
-    uint32_t                                                         createInfoCount,
-    StructPointerDecoder<Decoded_VkRayTracingPipelineCreateInfoKHR>* pCreateInfos,
-    StructPointerDecoder<Decoded_VkAllocationCallbacks>*             pAllocator,
-    HandlePointerDecoder<VkPipeline>*                                pPipelines)
-{
-    nlohmann::ordered_json& jdata = WriteApiCallStart(call_info, "vkCreateRayTracingPipelinesKHR");
-    FieldToJson(jdata[NameReturn()], returnValue, json_options_);
-    auto& args = jdata[NameArgs()];
-    HandleToJson(args["device"], device, json_options_);
-    HandleToJson(args["deferredOperation"], deferredOperation, json_options_);
-    HandleToJson(args["pipelineCache"], pipelineCache, json_options_);
-    FieldToJson(args["createInfoCount"], createInfoCount, json_options_);
-    FieldToJson(args["pCreateInfos"], pCreateInfos, json_options_);
-    FieldToJson(args["pAllocator"], pAllocator, json_options_);
-    HandleToJson(args["pPipelines"], pPipelines, json_options_);
     WriteBlockEnd();
 }
 

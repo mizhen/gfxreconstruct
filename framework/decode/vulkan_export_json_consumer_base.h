@@ -1,6 +1,5 @@
 /*
 ** Copyright (c) 2022-2023 LunarG, Inc.
-** Copyright (c) 2023 Advanced Micro Devices, Inc. All rights reserved.
 **
 ** Permission is hereby granted, free of charge, to any person obtaining a
 ** copy of this software and associated documentation files (the "Software"),
@@ -179,17 +178,6 @@ class VulkanExportJsonConsumerBase : public VulkanConsumer, public AnnotationHan
                                                               format::HandleId                 descriptorSet,
                                                               format::HandleId                 descriptorUpdateTemplate,
                                                               DescriptorUpdateTemplateDecoder* pData) override;
-
-    virtual void Process_vkCreateRayTracingPipelinesKHR(
-        const ApiCallInfo&                                               call_info,
-        VkResult                                                         returnValue,
-        format::HandleId                                                 device,
-        format::HandleId                                                 deferredOperation,
-        format::HandleId                                                 pipelineCache,
-        uint32_t                                                         createInfoCount,
-        StructPointerDecoder<Decoded_VkRayTracingPipelineCreateInfoKHR>* pCreateInfos,
-        StructPointerDecoder<Decoded_VkAllocationCallbacks>*             pAllocator,
-        HandlePointerDecoder<VkPipeline>*                                pPipelines) override;
 
     /// @brief Convert annotations, which are simple {type:enum, key:string, value:string} objects.
     virtual void ProcessAnnotation(uint64_t               block_index,
