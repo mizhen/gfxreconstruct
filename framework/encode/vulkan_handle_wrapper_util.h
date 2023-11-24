@@ -26,12 +26,12 @@
 
 #include "encode/handle_unwrap_memory.h"
 #include "encode/vulkan_handle_wrappers.h"
-#include "vulkan_scoped_destroy_lock.h"
 #include "format/format.h"
 #include "format/format_util.h"
 #include "generated/generated_vulkan_dispatch_table.h"
 #include "generated/generated_vulkan_state_table.h"
 #include "util/defines.h"
+#include "capture_manager.h"
 
 #include <algorithm>
 #include <iterator>

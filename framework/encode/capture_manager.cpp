@@ -60,6 +60,8 @@ std::function<void()>                                    CaptureManager::delete_
 
 std::atomic<format::HandleId> CaptureManager::unique_id_counter_{ format::kNullHandleId };
 
+std::shared_mutex             ScopedDestroyLock::mutex_for_create_destroy_handle_;
+
 CaptureManager::ThreadData::ThreadData() :
     thread_id_(GetThreadId()), object_id_(format::kNullHandleId), call_id_(format::ApiCallId::ApiCall_Unknown),
     block_index_(0)

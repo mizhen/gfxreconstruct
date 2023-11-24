@@ -1,5 +1,6 @@
 /*
 ** Copyright (c) 2020 LunarG, Inc.
+** Copyright (c) 2023 Advanced Micro Devices, Inc. All rights reserved.
 **
 ** Permission is hereby granted, free of charge, to any person obtaining a
 ** copy of this software and associated documentation files (the "Software"),
@@ -21,6 +22,7 @@
 */
 
 #include "encode/vulkan_handle_wrapper_util.h"
+#include "encode/capture_manager.h"
 
 GFXRECON_BEGIN_NAMESPACE(gfxrecon)
 GFXRECON_BEGIN_NAMESPACE(encode)
